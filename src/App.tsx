@@ -4,6 +4,7 @@ import { TaskTable } from "@/components/TaskTable";
 
 function App() {
   return (
+    //Wrap The Project Into TaskProvider To Share State Throughout The Component Tree.
     <TaskProvider>
       <div className="flex items-start justify-center h-screen">
         <div className="w-[90%] lg:w-[60%] border border-slate-400 rounded-md overflow-hidden mt-[80px]">

@@ -1,3 +1,5 @@
+//Data Type Use For All Project
+
 export type TaskStatusType = "todo" | "inProgress" | "done";
 
 type SubTaskStatusType = "done" | "notDone";

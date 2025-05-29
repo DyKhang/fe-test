@@ -19,6 +19,8 @@ type Props = {
 
 export const TaskContext = createContext<TaskContextType | null>(null);
 
+//A Parent Component Wrap Component Tree To Sharing State
+//Using LocalStorage To Persist Tasks Data
 export const TaskProvider: React.FC<Props> = ({ children }) => {
   const [tasks, setTasks] = useState<TaskType[]>(() => {
     let tasks = tasksData;
