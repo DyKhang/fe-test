@@ -21,24 +21,25 @@ export const EditableInput: React.FC<Props> = ({ task, field }) => {
     ref.current?.focus();
   }, [isEditing]);
 
+  const handleEditTask = () => {
+    if (!valueChanged) {
+      toast.error(MESSAGES.ERROR);
+      ref.current?.focus();
+      return;
+    }
+    setIsEditing(false);
+    setTasks((tasks) =>
+      tasks.map((t) => (t.id !== task.id ? t : { ...t, [field]: valueChanged }))
+    );
+  };
+
   if (isEditing)
     return (
       <Input
         value={valueChanged}
         onChange={(e) => setValueChanged(e.target.value)}
-        onBlur={() => {
-          if (!valueChanged) {
-            toast.error(MESSAGES.ERROR);
-            ref.current?.focus();
-            return;
-          }
-          setIsEditing(false);
-          setTasks((tasks) =>
-            tasks.map((t) =>
-              t.id !== task.id ? t : { ...t, [field]: valueChanged }
-            )
-          );
-        }}
+        onBlur={() => handleEditTask()}
+        onKeyDown={(e) => e.key === "Enter" && handleEditTask()}
         ref={ref}
         className={`text-[${
           field === "name" ? "18" : "16"

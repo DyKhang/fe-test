@@ -46,10 +46,7 @@ export const AddTask = () => {
           <span className="-translate-y-[1px] hidden lg:block">Create</span>
         </div>
       </DialogTrigger>
-      <DialogContent
-        className="sm:max-w-[425px]"
-        aria-describedby="create-new-task"
-      >
+      <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Create New Task</DialogTitle>
         </DialogHeader>
